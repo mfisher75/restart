@@ -1,0 +1,29 @@
+<div id="header">
+  <span class="header_title">{{title}}</span> is the best app in the world
+  <div class="action_button" (click)="addTrip()">ADD TRIP</div>
+</div>
+<div id="content">
+  <!-- List of trips -->
+  <div *ngIf="!adding_trip">
+    <div class="trip" *ngFor="let trip of trips">
+      {{trip.title}}
+    </div>
+  </div>
+  <!-- New trip dialog -->
+  <div id="add_trip_dialog" *ngIf="adding_trip">
+    <!-- Fields -->
+    <div class="add_trip_field">
+      <p>Trip title:</p>
+      <input [(ngModel)]="newTrip.title" type="text">
+    </div>
+    <!-- Buttons -->
+    <div>
+      <div class="action_button" (click)="doAddTrip()">OK</div>
+      <div class="action_button" (click)="cancelAddTrip()">CANCEL</div>
+    </div>
+  </div>
+
+</div> <!-- content -->
+<div id="footer">
+  This is my footer
+</div>
